@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    text-align: center;
+    border: 1px solid black;
+}
+
+
+img {
+    width: 100%;
+
+}
+
+section {
+    display: flex;
+
+}
+
+article {
+    flex-grow: 400px;
+    flex-basis: 1;
+    border: 1px solid black;
+}
+
+footer {
+    text-align: center;
+}
+
+p {
+    margin: 10px;
+}
+
+h2 {
+    margin: 10px;
+}
+
+
+
+
+h3 {
+    margin: 10px;
+}
