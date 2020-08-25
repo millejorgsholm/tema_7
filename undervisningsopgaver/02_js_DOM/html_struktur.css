@@ -10,7 +10,7 @@ header {
 
 
 img {
-    width: 100%;
+    max-width: 100%;
 
 }
 
@@ -20,6 +20,7 @@ section {
 }
 
 article {
+    max-width: 50%;
     flex-grow: 400px;
     flex-basis: 1;
     border: 1px solid black;
