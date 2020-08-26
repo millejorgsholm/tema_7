@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mit slideshow</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    /*    STYLING*/
+    img {
+        width: 30%;
+    }
+
+    h1 {
+        color: #fd78da;
+        font-family: 'Moonflower';
+
+    }
+
+    h2 {
+        color: #fd78da;
+        font-family: 'Moonflower';
+        font-size: 1.3rem;
+
+    }
+
+    p {
+        color: #fd78da;
+        font-family: 'Moonflower';
+        font-size: 1.4rem;
+    }
+
+
+    button {
+        color: #fd78da;
+        font-family: 'Moonflower';
+        font-size: 1.4rem;
+        border: #fd78da;
+    }
+
+</style>
+
+<body>
+    <h1>Mit disney-slideshow</h1>
+    <h2>Tryk på knappen i bunden for at se billeder fra Disneyland</h2>
+    <img src="billeder/img1.jpg" alt="billede1">
+    <br><br>
+    <button>Videre</button>
+    <p>Billeder hentet fra Unsplash.com</p>
+    <script>
+        //Lav en tæller, som kan tælle gennem billederne
+        let number = 0;
+
+        //Find billede
+        const billede = document.querySelector("img");
+
+        //Opret array
+        let billeder = ["img1.jpg", "img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img8.jpg"];
+        //Klik på knapfor at gå videre/skifte billede
+        const knap = document.querySelector("button");
+        knap.addEventListener("click", skiftBillede);
+        //Oprette funktion til at skifte billede
+        function skiftBillede() {
+            //Tæl op
+
+            //Hvis billeder er mindre end hele listen (array'et), så skal billedet skifte --> tal sat til 7 hvis der er 7 billeder
+
+            if (number < 7) {
+
+                number++;
+                console.log(billeder[number]);
+                //"billeder/"+ markerer, at mine images er inde i denne mappe
+                billede.src = "billeder/" + billeder[number];
+
+
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
