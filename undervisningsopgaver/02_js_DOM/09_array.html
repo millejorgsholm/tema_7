@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    body {
+        color: burlywood;
+    }
+
+    #display {
+        width: 20vw;
+        height: 20vw;
+        border: 1px solid silver;
+        margin: 7vw;
+        padding: 1vw;
+    }
+
+</style>
+
+<body>
+    <div id="display"></div>
+    <script>
+        //Erklærer playliste-variable og indtaster arrays (sangene)
+        let playliste = ["Changes", "Dangerous woman", "Stuck with U", "All my love", "Solhverv", "Sjakalina", "Blå himmel", "Tilbage", "Ringer i morgen"];
+        playliste.forEach(sang => {
+            document.querySelector("#display").innerHTML += `${sang}<br>`;
+        })
+
+    </script>
+</body>
+
+</html>
