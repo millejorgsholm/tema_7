@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelser js_basics</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Angiv venligst længden på din flyrejse (i timer)</p>
+    <input type="text" id="antal">
+
+    <button>Klik og udregn CO2-udledningen!</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let antal = document.querySelector("#antal").value;
+            let co2 = 109;
+            let udslip = antal * co2;
+            let resultat;
+
+
+
+            if (isNaN(udslip)) {
+                resultat = "Det er ikke et tal! Prøv igen";
+            } else {
+                resultat = `Dit co2 udslip er ${udslip}`;
+            }
+
+            console.log(resultat);
+        }
+
+    </script>
+</body>
+
+</html>
