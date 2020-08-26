@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 2B</title>
+    <link rel="stylesheet" href="html_struktur.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2>Undertitel</h2>
+        <section>
+            <article>
+                <img src="by.png" alt="city">
+                <h3>Article 1</h3>
+                <p>ndustry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            </article>
+            <article>
+                <img src="hav.png" alt="ocean">
+                <h3>Article 2</h3>
+                <p>ndustry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                </p>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DomContentLoaded", start);
+
+        function start() {
+            alert("DOM er loaded");
+
+        }
+
+
+
+        //         Overskrifter
+        const hovedoverskrift = document.querySelector("h1");
+        console.log(hovedoverskrift);
+        const underoverskrift = document.querySelector("h2");
+        console.log(underoverskrift);
+        //        Article 1
+        const articleFirstChild = document.querySelector("article:first-child");
+        console.log(articleFirstChild);
+        const articleFirstChildOverskrift = document.querySelector("article:nth-child(1) h3");
+        console.log(articleFirstChildOverskrift);
+        const articleFirstChildImg = document.querySelector("article:nth-child(1) img");
+        console.log(articleFirstChildImg);
+        const articleFirstChildText = document.querySelector("article:nth-child(1) p");
+        console.log(articleFirstChildText);
+
+        //        Article 2
+        const article2 = document.querySelector("article:nth-child(2)");
+        console.log(article2);
+        const article2Img = document.querySelector("article:nth-child(2) img");
+        console.log(article2Img);
+        const article2Overskrift = document.querySelector("article:nth-child(2) h3");
+        console.log(article2Overskrift);
+        const article2Text = document.querySelector("article:nth-child(2) p");
+        console.log(article2Text);
+
+        // Footer
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+        //Udskiftning af hoved- og underoverskrift vha. js
+        hovedoverskrift.textContent;
+        hovedoverskrift.textContent = "Mine artikler";
+
+        underoverskrift.textContent;
+        underoverskrift.textContent = "Læs mere";
+
+        //Udskiftning af Artikel 1 (overskrifter og tekst)
+
+        articleFirstChildOverskrift.textContent;
+        articleFirstChildOverskrift.textContent = "Dette er artikel 1";
+
+        //        Udskift billede i artikel 1
+        const pic1 = document.querySelector("article:nth-child(1) img");
+        pic1.src = "hund.jpg"
+        pic1.alt = "Her er en sød hund";
+
+
+        //Udskiftning af Artikel 2 (overskrifter og tekst)
+        article2Overskrift.textContent;
+        article2Overskrift.textContent = "Dette er artikel 2";
+
+
+        //        Her bruges innerHTML i stedet for textContent
+        article2Text.innerHTML;
+        article2Text.innerHTML = "Du ser nu a<b>rtikel 2</b>";
+
+        //        Udskift billede i artikel 1
+        const pic2 = document.querySelector("article:nth-child(2) img");
+        pic2.src = "pige.jpg";
+        pic2.alt = "Her er en glad pige";
+
+        //Lave ekstra artikel vha appendChild (appendChild = tilføje child)
+
+        let newArticle = document.createElement("article");
+        let mainSection = document.querySelector("section");
+        mainSection.appendChild(newArticle) // kan kun ses i inspector
+        //Lave ny overskrift (h3) + tekst til overskrift
+        let overskrift = document.createElement("h3");
+        let overskriftText = document.createTextNode("Artikel 3");
+
+        //Indsæt tekst i overskrift
+        overskrift.appendChild(overskriftText);
+        //Indsæt overskrift i artikel
+        newArticle.appendChild(overskrift)
+        //Tilføj artikel
+        mainSection.appendChild(newArticle);
+
+        //Udskift billeder
+        document.querySelector("article:nth-child(1) img").addEventListener("click", picClicked);
+
+        function picClicked() {
+            pic1.src = "by.png";
+            pic1.alt = "Her er en by";
+        }
+
+    </script>
+
+</body>
+
+</html>
