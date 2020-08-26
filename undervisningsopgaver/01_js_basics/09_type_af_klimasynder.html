@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelser js_basics</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <script>
+        //Erklærer variabler
+
+        //Indsat 3, da det er 3 timers flyrejse --> andre tal kan også indsættes
+        //Ændret timer-variabel fra opg 8 til "antal" for at undgå forvirring
+        let antal = 4;
+        let co2 = 109;
+        let udslip = antal * co2;
+        let resultat = `Ved ${antal} timers flyrejse har du udledt ${udslip} kg co2`;
+
+
+        //Mindre end 100 kg
+        if (udslip < 100) {
+            console.log(`Du har fløjet ${antal} timer og har udledt ${udslip} kg co2. Tæt på Thunberg.`);
+        }
+
+        //Mellem 100 og 200 kg
+        else if (udslip < 200) {
+            console.log(`Du har fløjet ${antal} timer og har udledt  ${udslip} kg co2. Ja ja, du behøver ikke at melde dig ud af Å!`);
+        }
+
+        //Mellem 200 og 600 kg
+        else if (udslip < 600) {
+            console.log(`Du har fløjet ${antal} timer og har udledt  ${udslip} kg co2. Det er godt for turismen i nordeuropa.`);
+        }
+
+        //Over 600kg
+        else {
+            console.log(`Du har fløjet ${antal} timer og har udledt  ${udslip} kg co2. Nå ja vi kan jo altid kolonisere en anden planet ...`);
+        }
+
+    </script>
+</body>
+
+</html>
