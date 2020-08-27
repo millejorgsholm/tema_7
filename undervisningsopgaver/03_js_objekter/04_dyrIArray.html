@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <article></article>
+    <script>
+        // Lav object og udfyld properties for fem dyr
+        let dyr = [{
+                "navn": "Gris",
+                "type": "Pattedyr",
+                "levested": "Svinefarm",
+                "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+            }, {
+
+                "navn": "Frø",
+                "type": "amfibie",
+                "levested": "Vandhuller",
+                "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+            }, {
+                "navn": "Ræv",
+                "type": "Pattedyr",
+                "levested": "Skove",
+                "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+            }, {
+                "navn": "Krokodille",
+                "type": "Krybdyr",
+                "levested": "Floder",
+                "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+            }, {
+                "navn": "Sild",
+                "type": "Fisk",
+                "levested": "Havet",
+                "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+            }
+
+        ]
+
+        //Sørg for at DOM er loaded
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            console.log(dyr);
+        }
+
+        //Udskriv navnet på dyr 1 (frø) i console log --> Index rækkefølge er (0,1,2,3 osv..) så fx er gris nr 0 osv
+        console.log(dyr[1].navn);
+
+    </script>
+</body>
+
+</html>
