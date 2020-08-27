@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelser js_basics</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Gæt et tal mellem 0 og 20</p>
+    <input type="text" id="guess">
+
+    <button>Klik for at se om du har gættet rigtigt</button>
+    <button id="newgame">Nyt spil</button>
+
+    <script>
+        //Erklær variabler
+        let number = Math.round(Math.random() * 20);
+        let guess;
+
+        //Antal gange man gætter
+        let antal = 1;
+
+        //Lav eventlisteners
+        document.querySelector("button").addEventListener("click", guessNumber);
+        document.querySelector("#newgame").addEventListener("click", newGame);
+
+        //Skjul prøv igen-knap
+        document.querySelector("#newgame").style.visibility = "hidden";
+
+        function guessNumber() {
+            guess = document.querySelector("#guess").value;
+
+            if (guess == number) {
+                console.log("Tillykke! Du gættede tallet efter" + antal + "forsøg!");
+
+                document.querySelector("#newgame").style.visibility = "visible";
+                document.querySelector("button").style.visibility = "hidden";
+            } else if (guess < number) {
+                console.log("Tallet er for lavt, prøv igen!");
+                antal++;
+            } else {
+                console.log("Tallet er for højt, prøv igen!");
+                antal++;
+            }
+        }
+
+        function newGame() {
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>
