@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persongalleri</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    img {
+        width: 80%;
+    }
+
+    section {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+
+    }
+
+
+    h2 {
+
+        font-family: 'Vogue';
+        color: #ff4141;
+    }
+
+    p {
+        font-family: 'Helevetica';
+        color: #f4788d;
+        font-size: 1rem;
+    }
+
+
+    article {
+        width: 80%;
+        border: 1px solid black;
+        padding: 20px;
+        margin-bottom: 20px;
+
+
+    }
+
+</style>
+
+<body>
+    <section id="liste"></section>
+    <template>
+        <article class="persongalleri">
+            <h2 class="navn"></h2>
+            <p class="efternavn"></p>
+            <p class="køn"></p>
+            <p class="alder"></p>
+            <p class="religion"></p>
+            <p class="hobby"></p>
+            <p class="kæledyr"></p>
+            <p class="job"></p>
+            <p class="by"></p>
+            <p class="land"></p>
+            <img src="" alt="">
+        </article>
+    </template>
+    <script>
+        const list = document.querySelector("#liste");
+        const personTemplate = document.querySelector("template");
+
+
+        //        Indsæt link
+        const url = "https://spreadsheets.google.com/feeds/list/1mtHhpoEkYqVqr1TSnKQ1_sQZWI7FRVjcw3H1oatDOVQ/od6/public/values?alt=json";
+
+        async function hentData() {
+            const respons = await fetch(url);
+
+            //Skal hentes ud af variablen respons vha JSON
+            const json = await respons.json();
+            vis(json);
+        }
+
+        function vis(personer) {
+            console.log(personer);
+            personer.feed.entry.forEach(person => {
+                let clone = personTemplate.cloneNode(true).content;
+                clone.querySelector(".navn").textContent = person.gsx$navn.$t;
+                clone.querySelector(".efternavn").textContent = person.gsx$efternavn.$t;
+                clone.querySelector(".efternavn").textContent = person.gsx$køn.$t;
+                clone.querySelector(".alder").textContent = person.gsx$alder.$t;
+                clone.querySelector(".religion").textContent = person.gsx$religion.$t;
+                clone.querySelector(".hobby").textContent = person.gsx$hobby.$t;
+                clone.querySelector(".kæledyr").textContent = person.gsx$kæledyr.$t;
+                clone.querySelector(".job").textContent = person.gsx$job.$t;
+                clone.querySelector(".by").textContent = person.gsx$by.$t;
+                clone.querySelector(".land").textContent = person.gsx$land.$t;
+                clone.querySelector("img").src = person.gsx$billede.$t;
+                list.append(clone);
+
+
+            })
+        }
+
+        hentData();
+
+        //løb igennem array "dyr
+
+    </script>
+</body>
+
+</html>
