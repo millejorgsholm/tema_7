@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    h2 {
+
+        font-family: 'Moonflower';
+        color: limegreen;
+    }
+
+    p {
+        font-family: 'Moonflower';
+        color: limegreen;
+        font-size: 1rem;
+    }
+
+
+    article {
+        width: 50%;
+        border: 1px solid black;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+</style>
+
+<body>
+    <section id="liste"></section>
+    <template>
+        <article class="dyr">
+            <h2></h2>
+            <img src="" alt="">
+            <p class="art"></p>
+            <p class="sted"></p>
+        </article>
+    </template>
+    <script>
+        const list = document.querySelector("#liste");
+        const animalTemplate = document.querySelector("template");
+
+        async function hentData() {
+            const respons = await fetch("dyr.json");
+
+            //Skal hentes ud af variablen respons vha JSON
+            const json = await respons.json();
+            vis(json);
+        }
+
+        function vis(json) {
+            json.forEach(dyr => {
+                let clone = animalTemplate.cloneNode(true).content;
+                clone.querySelector("h2").textContent = dyr.navn;
+                clone.querySelector(".art").textContent = dyr.type;
+                clone.querySelector(".sted").textContent = dyr.levested;
+                clone.querySelector("img").src = dyr.billede;
+                list.append(clone);
+
+
+            })
+
+        }
+
+        hentData();
+
+        //løb igennem array "dyr
+    </script>
+</body></html>
