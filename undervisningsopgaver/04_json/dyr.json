@@ -1,0 +1,27 @@
+[{
+            "navn": "Gris",
+            "type": "Pattedyr",
+            "levested": "Svinefarm",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+        }, {
+
+            "navn": "Frø",
+            "type": "amfibie",
+            "levested": "Vandhuller",
+            "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+        }, {
+            "navn": "Ræv",
+            "type": "Pattedyr",
+            "levested": "Skove",
+            "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+        }, {
+            "navn": "Krokodille",
+            "type": "Krybdyr",
+            "levested": "Floder",
+            "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+        }, {
+            "navn": "Sild",
+            "type": "Fisk",
+            "levested": "Havet",
+            "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+        }]
