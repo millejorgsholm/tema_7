@@ -45,12 +45,13 @@
 
     }
 
-/*    Styling af "Kvinder"-knap*/
+    /*    Styling af "Kvinder"-knap*/
     .female {
         color: red;
         border: 3px solid red;
 
     }
+
 </style>
 
 <body>
@@ -92,16 +93,19 @@
         function visPersoner() {
             const list = document.querySelector("#liste");
             const personTemplate = document.querySelector("template");
-            personer.feed.entry.forEach(person => {
-                if (filter == person.gsx$køn.$t) {
-                    console.log(person);
-                    let clone = personTemplate.cloneNode(true).content;
-                    clone.querySelector("h2").textContent = person.gsx$navn.$t;
-                    clone.querySelector("img").src = person.gsx$billede.$t;
-                    list.appendChild(clone);
+            //toLowerCase gør at både den tæller både stort og lille m/k med
+            if (filter == person.gsx$køn.$t.toLowerCase()) {
+                console.log(person);
+                let clone = personTemplate.cloneNode(true).content;
+                clone.querySelector("h2").textContent = person.gsx$navn.$t;
+                clone.querySelector("img").src = person.gsx$billede.$t;
+                list.appendChild(clone);
 
-                }
-            })
+            }
+        })
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

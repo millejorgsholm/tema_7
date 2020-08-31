@@ -51,6 +51,7 @@
         border: 3px solid red;
 
     }
+
 </style>
 
 <body>
@@ -95,7 +96,8 @@
             const personTemplate = document.querySelector("template");
             list.innerHTML = "";
             personer.feed.entry.forEach(person => {
-                if (filter == person.gsx$køn.$t) {
+                //toLowerCase gør at både den tæller både stort og lille m/k med
+                if (filter == person.gsx$køn.$t.toLowerCase()) {
                     console.log(person);
                     let clone = personTemplate.cloneNode(true).content;
                     clone.querySelector("h2").textContent = person.gsx$navn.$t;
@@ -116,5 +118,8 @@
             filter = this.dataset.køn;
             visPersoner();
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
