@@ -10,7 +10,7 @@
 
 <style>
     img {
-        width: 80%;
+        width: 100%;
     }
 
     section {
@@ -32,12 +32,13 @@
 
     h2 {
 
-        font-family: 'Helvetica';
+        font-family: 'Montserrat';
 
     }
 
     p {
-        font-family: 'Helevetica';
+        font-family: 'Montserrat';
+        font-size: 12px;
 
     }
 
@@ -52,13 +53,19 @@
 
     }
 
+    button {
+        font-family: 'Montserrat';
+    }
 </style>
 
 <body>
-    <!--   Overskrift som viser det valgte-->
+
     <header>
+        <!-- SPLASH BILLEDE HER -->
+    </header>
+    <!--       Opret knapper og sæt placer i midten af sitet-->
+    <nav>
         <h1>Menu</h1>
-        <!--       Opret knapper og sæt placer i midten af sitet-->
         <div style="text-align: center;">
             <button class="filter valgt" data-kategori="alle">Alle</button>
             <button class="filter" data-kategori="forretter">Forretter</button>
@@ -67,7 +74,8 @@
             <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
             <button class="filter" data-kategori="sideorders">Sideorders</button>
         </div>
-    </header>
+    </nav>
+    <br>
     <section id="liste"></section>
     <template>
         <article class="menu">
@@ -133,8 +141,5 @@
             this.classList.add("valgt");
             visRetter();
         }
-
     </script>
-</body>
-
-</html>
+</body></html>
