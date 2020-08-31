@@ -100,7 +100,7 @@
             retter.feed.entry.forEach(ret => {
                 if (filter == "alle" || filter == ret.gsx$kategori.$t.toLowerCase()) {
                     let clone = menuTemplate.cloneNode(true).content;
-                    clone.querySelector("img").src = "billeder/" + ret.gsx$billede.$t + ".jpg";
+                    clone.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
                     clone.querySelector(".navn").textContent = ret.gsx$navn.$t;
                     clone.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
                     clone.querySelector(".pris").textContent = ret.gsx$pris.$t;
