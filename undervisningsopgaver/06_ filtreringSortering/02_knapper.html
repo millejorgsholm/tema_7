@@ -94,7 +94,7 @@
             const list = document.querySelector("#liste");
             const personTemplate = document.querySelector("template");
             //toLowerCase gør at både den tæller både stort og lille m/k med
-            if (filter == person.gsx$køn.$t.toLowerCase()) {
+            if (filter == "alle" || filter == person.gsx$køn.$t.toLowerCase()) {
                 console.log(person);
                 let clone = personTemplate.cloneNode(true).content;
                 clone.querySelector("h2").textContent = person.gsx$navn.$t;
