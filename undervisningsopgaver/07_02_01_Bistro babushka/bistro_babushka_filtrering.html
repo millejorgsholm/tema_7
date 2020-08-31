@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    img {
+        width: 80%;
+    }
+
+    section {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+
+
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Montserrat';
+    }
+
+
+    h2 {
+
+        font-family: 'Helvetica';
+
+    }
+
+    p {
+        font-family: 'Helevetica';
+
+    }
+
+
+    article {
+        width: 80%;
+        border: 1px solid black;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #ededed;
+
+
+    }
+
+</style>
+
+<body>
+    <!--   Overskrift som viser det valgte-->
+    <header>
+        <h1>Menu</h1>
+        <!--       Opret knapper og sæt placer i midten af sitet-->
+        <div style="text-align: center;">
+            <button class="filter valgt" data-kategori="alle">Alle</button>
+            <button class="filter" data-kategori="forretter">Forretter</button>
+            <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+            <button class="filter" data-kategori="desserter">Desserter</button>
+            <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-kategori="sideorders">Sideorders</button>
+        </div>
+    </header>
+    <section id="liste"></section>
+    <template>
+        <article class="menu">
+            <img src="" alt="">
+            <h2 class="navn"></h2>
+            <p class="kategori"></p>
+            <p class="pris"></p>
+            <p class="kort"></p>
+            <p class="lang"></p>
+            <p class="oprindelse"></p>
+        </article>
+    </template>
+    <script>
+        let retter;
+        //Det listview sitet starter med at vise er "alle"
+        let filter = "alle";
+        document.addEventListener("DOMContentLoaded", loadJSON);
+        async function loadJSON() {
+            const JSONdata = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            retter = await JSONdata.json();
+            addEventListenersToButtons();
+            visRetter();
+        }
+
+        //Opret liste --> (listeview)
+        function visRetter() {
+            const list = document.querySelector("#liste");
+            const menuTemplate = document.querySelector("template");
+            list.innerHTML = "";
+            retter.feed.entry.forEach(ret => {
+                if (filter == "alle" || filter == ret.gsx$kategori.$t.toLowerCase()) {
+                    let clone = menuTemplate.cloneNode(true).content;
+                    clone.querySelector("img").src = "billeder/" + ret.gsx$billede.$t + ".jpg";
+                    clone.querySelector(".navn").textContent = ret.gsx$navn.$t;
+                    clone.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
+                    clone.querySelector(".pris").textContent = ret.gsx$pris.$t;
+                    clone.querySelector(".kort").textContent = ret.gsx$kort.$t;
+                    clone.querySelector(".lang").textContent = ret.gsx$lang.$t;
+                    clone.querySelector(".oprindelse").textContent = ret.gsx$oprindelse.$t;
+                    list.appendChild(clone);
+                    console.log(ret);
+
+                }
+            })
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.kategori;
+            //Når der klikkes på knap, sørger funktionen, ffor at h1-overskriftens indhold opdateres
+            document.querySelector("h1").textContent = this.textContent;
+            console.log(this);
+            //Fjern classen "valgt" fra alle knapper
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.classList.remove("valgt");
+            })
+            //Tilføj classen "valgt" til den knap der er klikket på
+            this.classList.add("valgt");
+            visRetter();
+        }
+
+    </script>
+</body>
+
+</html>
