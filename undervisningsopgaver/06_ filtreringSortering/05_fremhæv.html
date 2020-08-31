@@ -115,6 +115,7 @@
             list.innerHTML = "";
             personer.feed.entry.forEach(person => {
                 //toLowerCase gør at både den tæller både stort og lille m/k med
+                // "||" symboler betyder "eller"
                 if (filter == "alle" || filter == person.gsx$køn.$t.toLowerCase()) {
                     console.log(person);
                     let clone = personTemplate.cloneNode(true).content;
