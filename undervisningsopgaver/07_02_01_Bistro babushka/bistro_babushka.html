@@ -9,11 +9,19 @@
 </head>
 
 <style>
-    img {
-        width: 80%;
+    * {
+        margin: 0;
+
     }
 
-    section {
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+
+    }
+
+    #liste {
         max-width: 1100px;
         margin: 0 auto;
         display: grid;
@@ -22,34 +30,147 @@
 
 
 
+
+
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Montserrat';
     }
 
 
     h2 {
-
-        font-family: 'Helvetica';
+        font-family: 'Montserrat';
+        font-size: 16px;
 
     }
 
     p {
+        font-family: 'Montserrat';
+        font-size: 12px;
+        line-height: 1.8rem;
+    }
+
+
+    .menu {
+        width: 80%;
+        border: 0.2px solid #989898;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #eaeaea;
+    }
+
+    button {
+        font-family: 'Montserrat';
+        padding: 1.35em 2.2em;
+        border: 0.2em solid #dd6363;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 10px;
+        color: black;
+        transition: all 0.2s;
+        box-shadow: 1px 2px black;
+        border-radius: 5px;
+        background-color: #dd6363;
+    }
+
+    button:hover {
+        color: white;
+        background-color: black;
+        border: 0.2em solid black;
+        box-shadow: none;
+    }
+
+    .valgt {
+        color: white;
+    }
+
+    /*    STYLE POP OP*/
+    #popop {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .8);
+        cursor: pointer;
+        display: none;
+        overflow: scroll;
+
+
+    }
+
+    #popop article {
+        width: 60vw;
+        height: 80vh;
+        margin: 4rem auto;
+        background-color: white;
+        display: flex;
+        border-radius: 15px;
+
+    }
+
+    #luk {
+        position: fixed;
+        top: 0;
+        right: 2vw;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        padding: .1em;
+
+    }
+
+    #popup_indhold {
+        display: flex;
         font-family: 'Helevetica';
 
     }
 
-
-    article {
-        width: 80%;
-        border: 1px solid black;
-        padding: 20px;
-        margin-bottom: 20px;
-        background-color: #ededed;
-
+    #popop img {
+        width: 60%;
 
     }
 
+    span {
+        line-height: 1.8;
+    }
 </style>
 
 <body>
+    <section id="popop">
+        <article>
+            <div id="luk">X</div>
+            <div id="popop_indhold">
+                <img src="" alt="">
+                <h2></h2>
+                <p>Pris: <span class="pris"></span></p>
+                <p>Kategori: <span class="kategori"></span></p>
+                <p>Beskrivelse: <span class="lang"></span></p>
+                <p>Oprindelse: <span class="oprindelse"></span></p>
+            </div>
+        </article>
+    </section>
+    <header>
+        <!-- SPLASH BILLEDE HER -->
+        <img src="splashbillede2.jpg" alt="splashpic">
+    </header>
+    <!--       Opret knapper og sæt placer i midten af sitet-->
+    <nav>
+        <h1>Menu</h1>
+        <br>
+        <div style="text-align: center;">
+            <button class="filter valgt" data-kategori="alle">Alle</button>
+            <button class="filter" data-kategori="forretter">Forretter</button>
+            <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+            <button class="filter" data-kategori="desserter">Desserter</button>
+            <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-kategori="sideorders">Sideorders</button>
+        </div>
+    </nav>
+    <br>
     <section id="liste"></section>
     <template>
         <article class="menu">
@@ -63,41 +184,74 @@
         </article>
     </template>
     <script>
-        const list = document.querySelector("#liste");
-        const menuTemplate = document.querySelector("template");
-
-
-        //Indsæt json-googleSheets link
-        const url = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
-
-        async function hentData() {
-            const respons = await fetch(url);
-
-            //Skal hentes ud af variablen respons vha JSON
-            const json = await respons.json();
-            vis(json);
+        let retter;
+        //Det listview sitet starter med at vise er "alle"
+        let filter = "alle";
+        // const popop = document.querySelector("#popop");
+        document.addEventListener("DOMContentLoaded", loadJSON);
+        async function loadJSON() {
+            const JSONdata = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            retter = await JSONdata.json();
+            addEventListenersToButtons();
+            visRetter();
         }
 
         //Opret liste --> (listeview)
-        function vis(retter) {
-            console.log(retter);
+        function visRetter() {
+            const list = document.querySelector("#liste");
+            const menuTemplate = document.querySelector("template");
+            list.innerHTML = "";
             retter.feed.entry.forEach(ret => {
-                let clone = menuTemplate.cloneNode(true).content;
-                clone.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
-                clone.querySelector(".navn").textContent = ret.gsx$navn.$t;
-                clone.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
-                clone.querySelector(".pris").textContent = ret.gsx$pris.$t;
-                clone.querySelector(".kort").textContent = ret.gsx$kort.$t;
-                clone.querySelector(".lang").textContent = ret.gsx$lang.$t;
-                clone.querySelector(".oprindelse").textContent = ret.gsx$oprindelse.$t;
-                list.append(clone);
+                if (filter == "alle" || filter == ret.gsx$kategori.$t.toLowerCase()) {
+                    let clone = menuTemplate.cloneNode(true).content;
+                    clone.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
+                    clone.querySelector(".navn").textContent = ret.gsx$navn.$t;
+                    clone.querySelector(".lang").textContent = ret.gsx$lang.$t;
+                    clone.querySelector(".pris").textContent = "Pris:" + ret.gsx$pris.$t + ",-";
+                    clone.querySelector("article").addEventListener("click", () => visDetaljer(ret));
+                    list.appendChild(clone);
+                    console.log(ret);
 
+                }
             })
         }
 
-        hentData();
+        //Popop vindue lukker når der klikkes på luk-knap
+        document.querySelector("#luk").addEventListener("click", lukpopop);
 
+        function lukpopop() {
+            popop.style.display = "none";
+        }
+
+        function visDetaljer(ret) {
+            console.log(ret);
+            popop.querySelector("h2").textContent = ret.gsx$navn.$t;
+            popop.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
+            popop.querySelector(".pris").textContent = ret.gsx$pris.$t;
+            popop.querySelector(".kategori").textContent = ret.gsx$kategori.$t;
+            popop.querySelector(".lang").textContent = ret.gsx$lang.$t;
+            popop.querySelector(".oprindelse").textContent = ret.gsx$oprindelse.$t;
+            popop.style.display = "block";
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.kategori;
+            //Når der klikkes på knap, sørger funktionen, ffor at h1-overskriftens indhold opdateres
+            document.querySelector("h1").textContent = this.textContent;
+            console.log(this);
+            //Fjern classen "valgt" fra alle knapper
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.classList.remove("valgt");
+            })
+            //Tilføj classen "valgt" til den knap der er klikket på
+            this.classList.add("valgt");
+            visRetter();
+        }
     </script>
-</body>
-
-</html>
+</body></html>
