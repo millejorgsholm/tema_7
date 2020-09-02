@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Persongalleri Filtrering</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    img {
+        width: 80%;
+    }
+
+    /*    Omdøb fra section til #liste (det er det samme), så overlay fylder hele skærm*/
+    #liste {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+    }
+
+
+    h2 {
+
+        font-family: 'Vogue';
+        color: #ff4141;
+    }
+
+    p {
+        font-family: 'Helevetica';
+        color: #f4788d;
+        font-size: 1rem;
+    }
+
+
+    article {
+        width: 80%;
+        border: 1px solid black;
+        padding: 20px;
+        margin-bottom: 20px;
+
+    }
+
+    /*    Styling af "Kvinder"-knap*/
+    .female {
+        color: red;
+        border: 3px solid red;
+
+    }
+
+    /*    STYLE POP OP*/
+    #popop {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .8);
+        cursor: pointer;
+        /*        display: none;*/
+
+
+    }
+
+    #popop article {
+        width: 80vw;
+        height: 80vh;
+        margin: 4rem auto;
+        background-color: white;
+        display: flex;
+
+    }
+
+    #luk {
+        position: fixed;
+        top: 0;
+        right: 1em;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        padding: .1em;
+
+    }
+
+    #popup_indhold {
+        display: flex;
+        font-family: 'Helevetica';
+
+    }
+
+</style>
+
+<body>
+    <section id="popop">
+        <article>
+            <div id="luk">X</div>
+            <div id="popop_indhold">
+                <img src="" alt="">
+                <h2 class="navn">Navn:</h2>
+                <p class="efternavn">Efternavn:</p>
+                <p class="alder">Alder:</p>
+                <p class="religion">Religion:</p>
+                <p class="hobby">Hobby:</p>
+                <p class="kæledyr">Kæledyr:</p>
+                <p class="job">Job:</p>
+            </div>
+        </article>
+    </section>
+    <header>
+        <!--       Opret knapper og sæt placer i midten af sitet-->
+        <div style="text-align: center;">
+            <button class="filter valgt" data-køn="alle">Alle</button>
+            <button class="filter" data-køn="m">Mænd</button>
+            <button class="filter" class="female" data-køn="k">Kvinder</button>
+            <button class="filter" data-køn="andet">Andet</button>
+        </div>
+    </header>
+    <section id="liste"></section>
+    <template>
+        <article class="persongalleri">
+            <h2 class="navn"></h2>
+            <p class="efternavn"></p>
+            <p class="køn"></p>
+            <p class="alder"></p>
+            <p class="religion"></p>
+            <p class="hobby"></p>
+            <p class="kæledyr"></p>
+            <p class="job"></p>
+            <p class="by"></p>
+            <p class="land"></p>
+            <img src="" alt="">
+        </article>
+    </template>
+    <script>
+        let personer;
+        let filter = "k";
+        document.addEventListener("DOMContentLoaded", loadJSON);
+        async function loadJSON() {
+            const JSONdata = await fetch("https://spreadsheets.google.com/feeds/list/1mtHhpoEkYqVqr1TSnKQ1_sQZWI7FRVjcw3H1oatDOVQ/od6/public/values?alt=json");
+            personer = await JSONdata.json();
+            addEventListenersToButtons();
+            visPersoner();
+        }
+
+        function visPersoner() {
+            const list = document.querySelector("#liste");
+            const personTemplate = document.querySelector("template");
+            list.innerHTML = "";
+            personer.feed.entry.forEach(person => {
+                //toLowerCase gør at både den tæller både stort og lille m/k med
+                if (filter == "alle" || filter == person.gsx$køn.$t.toLowerCase()) {
+                    console.log(person);
+                    let clone = personTemplate.cloneNode(true).content;
+                    clone.querySelector("h2").textContent = person.gsx$navn.$t;
+                    clone.querySelector("img").src = person.gsx$billede.$t;
+                    list.appendChild(clone);
+
+                }
+            })
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.køn;
+            visPersoner();
+        }
+
+    </script>
+</body>
+
+</html>

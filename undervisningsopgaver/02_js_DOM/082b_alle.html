@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Øvelse 8b</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+
+    <img id="billede" src="https://placeimg.com/640/480/any" alt="picture">
+
+    <script>
+        const kategorier = ["animals", "arch", "people", "nature", "tech"];
+
+
+        billede.addEventListener("click", skift);
+
+        function skift() {
+            const nummer = Math.round(Math.random() * 4);
+            billede.src = "https://placeimg.com/640/480/" + kategorier[nummer];
+            billede.alt = kategorier[nummer];
+        }
+
+    </script>
+</body>
+
+</html>

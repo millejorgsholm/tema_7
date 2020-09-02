@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Babushka</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<style>
+    * {
+        margin: 0;
+
+
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+
+    }
+
+    #liste {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Montserrat';
+        margin: 10px;
+        font-size: 25px;
+
+
+
+    }
+
+
+    h2 {
+        font-family: 'Montserrat';
+        font-size: 16px;
+        margin: 10px;
+
+
+    }
+
+    p {
+        font-family: 'Montserrat';
+        font-size: 12px;
+        line-height: 1.8rem;
+        margin: 10px;
+    }
+
+
+    .menu {
+        width: 80%;
+        border: 0.2px solid #989898;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #eaeaea;
+    }
+
+    button {
+        font-family: 'Montserrat';
+        padding: 1.35em 2.2em;
+        border: 0.2em solid #dd6363;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 11px;
+        color: black;
+        transition: all 0.2s;
+        box-shadow: 1px 2px black;
+        border-radius: 5px;
+        background-color: #dd6363;
+    }
+
+    button:hover {
+        color: white;
+        background-color: black;
+        border: 0.2em solid black;
+        box-shadow: none;
+    }
+
+
+    .valgt {
+        color: white;
+    }
+
+    /*    STYLE POP OP*/
+    #popop {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .8);
+        cursor: pointer;
+        display: none;
+        overflow: scroll;
+
+
+    }
+
+    #popop article {
+        width: 60vw;
+        height: 80vh;
+        margin: 4rem auto;
+        background-color: white;
+        border-radius: 15px;
+
+    }
+
+    #luk {
+        position: fixed;
+        font-family: 'Montserrat';
+        padding: 1.35em 2.2em;
+        border: 0.2em solid #dd6363;
+        text-decoration: none;
+        font-weight: 300;
+        font-size: 10px;
+        color: black;
+        transition: all 0.2s;
+        box-shadow: 1px 2px black;
+        border-radius: 5px;
+        background-color: #dd6363;
+        top: 5vw;
+        right: 21vw;
+    }
+
+    #luk:hover {
+        color: white;
+        background-color: black;
+        border: 0.2em solid black;
+        box-shadow: none;
+    }
+
+    #popop h2 {
+        margin-left: 20px;
+
+    }
+
+    #popop p {
+        font-family: 'Montserrat';
+        margin-left: 20px;
+
+    }
+
+
+    #popop img {
+        width: 60%;
+        margin: 20px;
+
+    }
+
+    span {
+        line-height: 1.8;
+        padding-right: 100px;
+    }
+
+    @media (max-width:600px) {
+        button {
+            padding: 1.35em 2.2em;
+            border: 0.2em solid #dd6363;
+            font-size: 8px;
+            transition: all 0.2s;
+            box-shadow: 1px 2px black;
+            border-radius: 5px;
+            background-color: #dd6363;
+        }
+    }
+
+</style>
+
+<body>
+    <section id="popop">
+        <article>
+            <button id="luk">X</button>
+            <div id="popop_indhold">
+                <img src="" alt="">
+                <h2></h2>
+                <p>Beskrivelse: <span class="lang"></span></p>
+                <p>Oprindelse: <span class="oprindelse"></span></p>
+                <p>Pris: <span class="pris"></span></p>
+            </div>
+        </article>
+    </section>
+    <header>
+        <!-- SPLASH BILLEDE HER -->
+        <img src="splashbillede2.jpg" alt="splashpic">
+    </header>
+
+    <!--       Opret knapper og sæt placer i midten af sitet-->
+    <h1>Bistro Babushkas menu</h1>
+    <nav>
+        <br>
+        <div style="text-align: center;">
+            <button class="filter valgt" data-kategori="alle">Alle</button>
+            <button class="filter" data-kategori="forretter">Forretter</button>
+            <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+            <button class="filter" data-kategori="desserter">Desserter</button>
+            <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+            <button class="filter" data-kategori="sideorders">Sideorders</button>
+        </div>
+    </nav>
+    <br>
+    <section id="liste"></section>
+    <template>
+        <article class="menu">
+            <img src="" alt="">
+            <h2 class="navn"></h2>
+            <p class="kategori"></p>
+            <p class="kort"></p>
+            <p class="lang"></p>
+            <p class="oprindelse"></p>
+            <p class="pris"></p>
+        </article>
+    </template>
+    <script>
+        let retter;
+        //Det listview sitet starter med at vise er "alle"
+        let filter = "alle";
+        // const popop = document.querySelector("#popop");
+        document.addEventListener("DOMContentLoaded", loadJSON);
+        async function loadJSON() {
+            const JSONdata = await fetch("https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json");
+            retter = await JSONdata.json();
+            addEventListenersToButtons();
+            visRetter();
+        }
+
+        //Opret liste --> (listeview)
+        function visRetter() {
+            const list = document.querySelector("#liste");
+            const menuTemplate = document.querySelector("template");
+            list.innerHTML = "";
+            retter.feed.entry.forEach(ret => {
+                if (filter == "alle" || filter == ret.gsx$kategori.$t.toLowerCase()) {
+                    let clone = menuTemplate.cloneNode(true).content;
+                    clone.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
+                    clone.querySelector(".navn").textContent = ret.gsx$navn.$t;
+                    clone.querySelector(".kort").textContent = ret.gsx$kort.$t;
+                    clone.querySelector(".pris").textContent = "Pris:" + ret.gsx$pris.$t + ",-";
+                    clone.querySelector("article").addEventListener("click", () => visDetaljer(ret));
+                    list.appendChild(clone);
+                    console.log(ret);
+
+                }
+            })
+        }
+
+        //Popop vindue lukker når der klikkes på luk-knap
+        document.querySelector("#luk").addEventListener("click", lukpopop);
+
+        function lukpopop() {
+            popop.style.display = "none";
+        }
+
+        function visDetaljer(ret) {
+            console.log(ret);
+            popop.querySelector("h2").textContent = ret.gsx$navn.$t;
+            popop.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
+            popop.querySelector(".lang").textContent = ret.gsx$lang.$t;
+            popop.querySelector(".oprindelse").textContent = ret.gsx$oprindelse.$t;
+            popop.querySelector(".pris").textContent = ret.gsx$pris.$t + ",-";
+            popop.style.display = "block";
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            });
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.kategori;
+            //Når der klikkes på knap, sørger funktionen, ffor at h1-overskriftens indhold opdateres
+            document.querySelector("h1").textContent = this.textContent;
+            console.log(this);
+            //Fjern classen "valgt" fra alle knapper
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.classList.remove("valgt");
+            })
+            //Tilføj classen "valgt" til den knap der er klikket på
+            this.classList.add("valgt");
+            visRetter();
+        }
+
+    </script>
+</body>
+
+</html>
