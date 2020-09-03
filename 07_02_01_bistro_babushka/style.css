@@ -54,6 +54,7 @@
        padding: 10px;
        margin-bottom: 20px;
        background-color: #eaeaea;
+       cursor: pointer;
    }
 
    button {
@@ -68,6 +69,7 @@
        box-shadow: 1px 2px black;
        border-radius: 5px;
        background-color: #dd6363;
+       cursor: pointer;
    }
 
    button:hover {
@@ -91,7 +93,6 @@
        left: 0;
        bottom: 0;
        background-color: rgba(0, 0, 0, .8);
-       cursor: pointer;
        display: none;
        overflow: scroll;
 
@@ -104,6 +105,7 @@
        margin: 4rem auto;
        background-color: white;
        border-radius: 15px;
+
 
    }
 
