@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoomBox</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--       Oprettelse af popup til singleview-->
+    <section id="popop">
+        <article>
+            <button id="luk">X</button>
+            <div id="popop_indhold">
+                <img src="" alt="">
+                <h2></h2>
+                <p>Beskrivelse: <span class="lang"></span></p>
+                <p>Oprindelse: <span class="oprindelse"></span></p>
+                <p>Pris: <span class="pris"></span></p>
+            </div>
+        </article>
+    </section>
+    <header>
+        <!-- SPLASH BILLEDE HER -->
+        <img src="splash.jpg" id="splash" alt="splashpic">
+    </header>
+
+    <!--       Oprettelse filtreringsknapper (ÆNDRET TIL BOOMBOX)-->
+    <h1>BoomBox</h1>
+    <nav>
+        <br>
+        <div style="text-align: center;">
+            <button class="filter valgt" data-genre="alle">Alle</button>
+            <button class="filter" data-genre="pop">Pop</button>
+            <button class="filter" data-genre="rock">Rock</button>
+            <button class="filter" data-genre="rap">Rap</button>
+            <button class="filter" data-genre="indie">Indie</button>
+            <button class="filter" data-genre="soul">Soul</button>
+        </div>
+    </nav>
+    <br>
+
+    <!--       Oprettelse af template og liste-section til listview-->
+    <section id="liste"></section>
+    <template>
+        <article class="musik_view">
+            <img src="" alt="">
+            <h2 class="genre"></h2>
+            <p class="titel"></p>
+            <p class="kunstner"></p>
+            <p class="album"></p>
+            <p class="dato"></p>
+            <p class="varighed"></p>
+        </article>
+    </template>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
