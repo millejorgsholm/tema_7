@@ -46,11 +46,13 @@ function lukpopop() {
 //Indholdet i popup-vinduet
 function visDetaljer(sang) {
     console.log(sang);
-    popop.querySelector("h2").textContent = ret.gsx$navn.$t;
-    popop.querySelector("img").src = "imgs/small/" + ret.gsx$billede.$t + "-sm.jpg";
-    popop.querySelector(".lang").textContent = ret.gsx$lang.$t;
-    popop.querySelector(".oprindelse").textContent = ret.gsx$oprindelse.$t;
-    popop.querySelector(".pris").textContent = ret.gsx$pris.$t + ",-";
+    popop.querySelector("h2").textContent = sang.gsx$titel.$t;
+    popop.querySelector("img").src = "imgs/" + sang.gsx$billede.$t + ".png";
+    popop.querySelector(".genre").textContent = sang.gsx$genre.$t;
+    popop.querySelector(".kunstner").textContent = sang.gsx$kunstner.$t;
+    popop.querySelector(".album").textContent = sang.gsx$album.$t;
+    popop.querySelector(".dato").textContent = sang.gsx$dato.$t
+    popop.querySelector(".varighed").textContent = sang.gsx$varighed.$t
     popop.style.display = "block";
 }
 
