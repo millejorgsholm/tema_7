@@ -4,10 +4,18 @@
 
    }
 
+   #logo {
+       margin: 15px;
+       float: left;
+       width: 150px;
+       height: auto;
+       position: absolute;
+
+   }
+
    img {
        width: 100%;
        height: auto;
-       border-radius: 15px;
 
    }
 
@@ -15,18 +23,20 @@
        max-width: 1100px;
        margin: 0 auto;
        display: grid;
-       grid-gap: 10px;
+       grid-gap: 20px;
+       padding: 30px;
        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 
 
    }
 
+
+
    h1 {
        text-align: center;
-       font-family: 'Smythe', cursive;
+       font-family: 'Bungee Shade';
        margin: 10px;
        font-size: 45px;
-       color: #D7BC8A;
 
 
 
@@ -48,63 +58,54 @@
        margin: 10px;
    }
 
-
-   .menu {
-       width: 80%;
-       border: 0.2px solid #989898;
-       padding: 10px;
-       margin-bottom: 20px;
-       background-color: #eaeaea;
-       cursor: pointer;
-   }
-
    button {
-       font-family: 'Montserrat';
-       padding: 1.35em 2.2em;
-       border: 0.2em solid #DA8C2F;
-       text-decoration: none;
-       font-weight: 300;
-       font-size: 11px;
-       color: black;
-       transition: all 0.2s;
-       box-shadow: 1px 2px black;
-       border-radius: 5px;
-       background-color: #DA8C2F;
+       display: inline-block;
+       padding: 10px;
+       margin: 10px;
+       font-size: 20px;
        cursor: pointer;
+       text-align: center;
+       text-decoration: none;
+       outline: none;
+       color: lightgrey;
+       border: none;
+       border-radius: 5px;
+       box-shadow: 0 9px lightgrey;
    }
 
-   button:hover {
-       color: white;
-       background-color: black;
-       border: 0.2em solid black;
-       box-shadow: none;
+   button:active {
+       box-shadow: 0 5px #666;
+       transform: translateY(4px);
    }
 
 
-   .valgt {
-       color: white;
+
+   .musik_view {
+       padding: 10px;
+       border-style: double;
+       border-radius: 5px;
    }
+
 
    /*    STYLE POP OP*/
    #popop {
+
        position: fixed;
+       left: 0;
+       top: 0;
        width: 100vw;
        height: 100vh;
-       top: 0;
-       left: 0;
-       bottom: 0;
-       background-color: rgba(0, 0, 0, .8);
+       background-color: rgba (0, 0, 0, .8);
        display: none;
        overflow: scroll;
-
 
    }
 
    #popop article {
        width: 60vw;
-       height: 80vh;
+       min-height: 80vh;
        margin: 4rem auto;
-       background-color: white;
+       background-color: cornflowerblue;
        border-radius: 15px;
 
 
@@ -112,18 +113,13 @@
 
    #luk {
        position: fixed;
-       font-family: 'Montserrat';
        padding: 1.35em 2.2em;
-       border: 0.2em solid #dd6363;
-       text-decoration: none;
-       font-weight: 300;
-       font-size: 10px;
-       color: black;
+       border: none;
+       color: white;
        transition: all 0.2s;
        box-shadow: 1px 2px black;
-       border-radius: 5px;
        background-color: #dd6363;
-       top: 5vw;
+       top: 6vw;
        right: 21vw;
    }
 
@@ -147,7 +143,7 @@
 
 
    #popop img {
-       width: 60%;
+       width: 40%;
        margin: 20px;
 
    }
