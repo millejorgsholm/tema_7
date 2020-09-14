@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <title>BoomBox</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex">
+    <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+    <!-- LOGO BILLEDE HER -->
+    <img src="kasette_bw.svg" id="logo">
+</head>
+
+<body>
+    <!--       Oprettelse af popup til singleview-->
+    <section id="popop">
+        <article>
+            <button id="luk">X</button>
+            <div id="popop_indhold">
+                <img src="" alt="">
+                <h2></h2>
+                <p>Genre: <span class="genre"></span></p>
+                <p>Kunstner: <span class="kunstner"></span></p>
+                <p>Album: <span class="album"></span></p>
+                <p>Udgivelsesdato: <span class="dato"></span></p>
+                <p>Varighed: <span class="varighed"></span></p>
+            </div>
+        </article>
+    </section>
+
+    <!--    Opret navigation og burgermenu-->
+    <header>
+        <img src="unsplash.jpg" id="splash" alt="splashpic">
+        <div id="navbar">
+            <div class="sectionwrapper">
+                <nav>
+                    <div id="menuknap">☰</div>
+                    <ul id="menu" class="hidden">
+                        <li><a class="filter valgt" data-genre="alle">Alle genre</a></li>
+                        <li><a class="filter" data-genre="pop">Pop</a></li>
+                        <li><a class="filter" data-genre="rock">Rock</a></li>
+                        <li><a class="filter" data-genre="rap">Rap</a></li>
+                        <li><a class="filter" data-genre="indie">Indie</a></li>
+                        <li><a class="filter" data-genre="soul">Soul</a></li>
+                        <!--                                                <button onclick="window.location.href='om_os.html'">Om os</button>-->
+                        <li><a href="om_os.html">Om os</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+
+    <!--       Oprettelse filtreringsknapper (ÆNDRET TIL BOOMBOX)-->
+    <h1>BoomBox</h1>
+    <nav>
+        <br>
+        <div style="text-align: center;">
+            <button class="filter valgt" data-genre="alle">ALLE</button>
+            <button class="filter" data-genre="pop">POP</button>
+            <button class="filter" data-genre="rock">ROCK</button>
+            <button class="filter" data-genre="rap">RAP</button>
+            <button class="filter" data-genre="indie">INDIE</button>
+            <button class="filter" data-genre="soul">SOUL</button>
+        </div>
+    </nav>
+    <br>
+
+    <!--       Oprettelse af template og liste-section til listview-->
+    <section id="liste"></section>
+    <template>
+        <article class="musik_view">
+            <img src="" alt="">
+            <h2 class="genre"></h2>
+            <p> Titel: <span class="titel"></span></p>
+            <p> Kunstner: <span class="kunstner"></span></p>
+            <p> Album: <span class="album"></span></p>
+            <p class="dato"></p>
+            <p class="varighed"></p>
+        </article>
+    </template>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
