@@ -58,6 +58,7 @@
        margin: 0;
        text-align: center;
        padding-top: 15px;
+/*       visibility: hidden;*/
    }
 
 
@@ -141,7 +142,7 @@
        position: absolute;
        left: 13vw;
        top: 6px;
-       ;
+
    }
 
    /*    STYLE POP OP*/
