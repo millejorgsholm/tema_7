@@ -39,7 +39,6 @@
        padding: 0;
        margin: 0;
        text-align: center;
-       background-color: white;
        padding-top: 15px;
    }
 
@@ -115,7 +114,7 @@
 
    .musik_view {
        padding: 10px;
-       border-style: double;
+       /*       border-style: double;*/
        border-radius: 5px;
    }
 
@@ -244,6 +243,8 @@
    }
 
 
+
+
    /*MEDIAQUERY - BURGER MENU*/
 
    @media (min-width: 768px) {
@@ -287,8 +288,14 @@
            float: right;
            margin-top: 10px;
            margin-right: 10px;
-           font-size: 30px;
-           color: #f2a74c;
+           font-size: 45px;
+           color: #73b7eb;
+           position: absolute;
+           right: 1vw;
+           top: -2vw;
+
+
+
        }
 
        #navbar a {
@@ -299,6 +306,8 @@
        #menu.hidden {
            height: 30px;
        }
+
+
 
 
    }
