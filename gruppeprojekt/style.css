@@ -19,6 +19,24 @@
 
    }
 
+   #navbar ul li {
+       display: inline-block;
+       padding-right: 10px;
+       padding-left: 10px;
+       text-align: center;
+       border-left: 0.1px solid black;
+   }
+
+   #navbar ul li:first-child {
+       border-left: none;
+   }
+
+   #navbar ul li a {
+       text-decoration: none;
+       color: black;
+   }
+
+
 
    #menu a:hover {
        color: #bcbcbc
