@@ -195,6 +195,7 @@
    @media (max-width:600px) {
        button {
            font-size: 11px;
+           visibility: hidden;
 
 
 
@@ -207,38 +208,6 @@
 
            width: 100px;
            height: auto;
-       }
-   }
-
-
-   /*MEDIAQUERY - OM MIG*/
-   @media (max-width: 768px) {
-       #om .sectionwrapper {
-           flex-wrap: wrap;
-
-       }
-
-       #om img {
-           margin-top: 20px;
-           width: 90%;
-           margin-left: 20px;
-       }
-
-       #om h1 {
-           font-size: 20px;
-
-       }
-
-       #om h4 {
-           font-size: 13px;
-
-       }
-
-       #om p {
-           font-size: 12px;
-           padding-right: 12px;
-           margin-bottom: 30px;
-
        }
    }
 
@@ -274,7 +243,7 @@
        }
 
        #menu {
-           height: 50px;
+           height: 100px;
            margin: 0;
            line-height: 1.6;
 
@@ -308,6 +277,9 @@
        }
 
 
-
+       h1 {
+           position: relative;
+           top: 18vw;
+       }
 
    }
