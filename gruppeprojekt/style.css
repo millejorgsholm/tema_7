@@ -19,6 +19,37 @@
 
    }
 
+
+   #menu a:hover {
+       color: #bcbcbc
+   }
+
+   #menuknap {
+       display: inline-block;
+   }
+
+   #menu {
+
+       list-style-type: none;
+       transition: transform 0.3s;
+       transform-origin: top left;
+       font-family: 'Open sans', sans-serif;
+       font-weight: lighter;
+       height: 50px;
+       padding: 0;
+       margin: 0;
+       text-align: center;
+       background-color: white;
+       padding-top: 15px;
+   }
+
+
+   .hidden {
+       transform: translateX(-100%);
+       opacity: 0;
+   }
+
+
    #liste {
        max-width: 1100px;
        margin: 0 auto;
@@ -163,4 +194,96 @@
            border-radius: 5px;
            background-color: #dd6363;
        }
+   }
+
+
+   /*MEDIAQUERY - OM MIG*/
+   @media (max-width: 768px) {
+       #om .sectionwrapper {
+           flex-wrap: wrap;
+
+       }
+
+       #om img {
+           margin-top: 20px;
+           width: 90%;
+           margin-left: 20px;
+       }
+
+       #om h1 {
+           font-size: 20px;
+
+       }
+
+       #om h4 {
+           font-size: 13px;
+
+       }
+
+       #om p {
+           font-size: 12px;
+           padding-right: 12px;
+           margin-bottom: 30px;
+
+       }
+   }
+
+
+   /*MEDIAQUERY - BURGER MENU*/
+
+   @media (min-width: 768px) {
+       #menuknap {
+           display: none;
+           float: right;
+
+
+       }
+
+       #menu.hidden {
+           transform: translateX(0);
+           opacity: 1;
+       }
+
+       #menu li {
+           display: inline-block;
+
+       }
+
+   }
+
+   @media (max-width: 768px) {
+
+       #navbar ul li {
+           display: block;
+       }
+
+       #menu {
+           height: 95px;
+           margin: 0;
+           line-height: 1.6;
+
+       }
+
+       #menu ul {
+           height: 100px;
+       }
+
+       #menuknap {
+           float: right;
+           margin-top: 10px;
+           margin-right: 10px;
+           font-size: 30px;
+           color: #98b8ff;
+       }
+
+       #navbar a {
+           border: none;
+
+       }
+
+       #menu.hidden {
+           height: 30px;
+       }
+
+
    }
