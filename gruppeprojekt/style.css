@@ -102,8 +102,8 @@
        color: white;
        border: none;
        border-radius: 5px;
-       box-shadow: 0 9px #e39537;
-       background-color: #f2a74c;
+       box-shadow: 0 9px #3887ca;
+       background-color: #73b7eb;
    }
 
    button:active {
@@ -119,6 +119,13 @@
        border-radius: 5px;
    }
 
+
+   #nav {
+       position: absolute;
+       left: 13vw;
+       top: 6px;
+       ;
+   }
 
    /*    STYLE POP OP*/
    #popop {

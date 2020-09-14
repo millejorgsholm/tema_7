@@ -86,7 +86,7 @@ window.addEventListener("load", sidenVises);
 function sidenVises() {
     console.log("sidenVises");
     document.querySelector("#menuknap").addEventListener("click", toggleMenu);
-    document.querySelector("#splash_text").classList.add("pulse");
+
 }
 
 function toggleMenu() {
