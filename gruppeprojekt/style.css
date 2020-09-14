@@ -57,6 +57,7 @@
        grid-gap: 20px;
        padding: 30px;
        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+       cursor: pointer;
 
 
    }
@@ -98,10 +99,11 @@
        text-align: center;
        text-decoration: none;
        outline: none;
-       color: lightgrey;
+       color: white;
        border: none;
        border-radius: 5px;
-       box-shadow: 0 9px lightgrey;
+       box-shadow: 0 9px #e39537;
+       background-color: #f2a74c;
    }
 
    button:active {
@@ -186,13 +188,19 @@
 
    @media (max-width:600px) {
        button {
-           padding: 1.35em 2.2em;
-           border: 0.2em solid #dd6363;
-           font-size: 8px;
-           transition: all 0.2s;
-           box-shadow: 1px 2px black;
-           border-radius: 5px;
-           background-color: #dd6363;
+           font-size: 11px;
+
+
+
+       }
+   }
+
+
+   @media (max-width:600px) {
+       #logo {
+
+           width: 100px;
+           height: auto;
        }
    }
 
@@ -258,7 +266,7 @@
        }
 
        #menu {
-           height: 95px;
+           height: 50px;
            margin: 0;
            line-height: 1.6;
 
@@ -273,7 +281,7 @@
            margin-top: 10px;
            margin-right: 10px;
            font-size: 30px;
-           color: #98b8ff;
+           color: #f2a74c;
        }
 
        #navbar a {
