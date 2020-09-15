@@ -39,14 +39,15 @@
                 <nav>
                     <div id="menuknap">☰</div>
                     <ul id="menu" class="hidden">
-                        <li><a class="filter valgt" data-genre="alle">Alle genre</a></li>
-                        <li><a class="filter" data-genre="pop">Pop</a></li>
-                        <li><a class="filter" data-genre="rock">Rock</a></li>
-                        <li><a class="filter" data-genre="rap">Rap</a></li>
-                        <li><a class="filter" data-genre="indie">Indie</a></li>
-                        <li><a class="filter" data-genre="soul">Soul</a></li>
-                        <!--                                                <button onclick="window.location.href='om_os.html'">Om os</button>-->
-                        <li><a href="om_os.html">Om os</a></li>
+                        <button class="filter valgt" data-genre="alle">ALLE</button>
+                        <button class="filter" data-genre="pop">POP</button>
+                        <button class="filter" data-genre="rock">ROCK</button>
+                        <button class="filter" data-genre="rap">RAP</button>
+                        <button class="filter" data-genre="indie">INDIE</button>
+                        <button class="filter" data-genre="soul">SOUL</button>
+                        <button onclick="window.location.href='om_os.html'">Om os</button>
+<!--                        <li><a href="om_os.html">Om os</a></li>-->
+
                     </ul>
                 </nav>
             </div>
@@ -60,7 +61,7 @@
 
     <!--       Oprettelse filtreringsknapper (ÆNDRET TIL BOOMBOX)-->
     <h1>BoomBox</h1>
-    <nav>
+    <nav class="hidden">
         <br>
         <div style="text-align: center;">
             <button class="filter valgt" data-genre="alle">ALLE</button>
@@ -72,7 +73,6 @@
         </div>
     </nav>
     <br>
-
     <!--       Oprettelse af template og liste-section til listview-->
     <section id="liste"></section>
     <template>
@@ -89,4 +89,6 @@
     <script src="script.js"></script>
 
 
-</body></html>
+</body>
+
+</html>
