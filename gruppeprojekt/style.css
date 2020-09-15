@@ -35,8 +35,31 @@
 
    }
 
-   /*NAVIGATION*/
 
+   /*SØGEFFELT*/
+
+   .topnav {
+       position: absolute;
+       right: 5vw;
+       top: 3vw;
+
+
+
+   }
+
+   #icon img {
+       width: 20px;
+       position: absolute;
+       right: 3.5vw;
+       top: 3vw;
+
+   }
+
+
+
+
+
+   /*NAVIGATION*/
 
    #navbar ul li {
        display: inline-block;
@@ -165,13 +188,13 @@
 
    /*    STYLE POP OP*/
    #popop {
-
        position: fixed;
        left: 0;
        top: 0;
        width: 100vw;
        height: 100vh;
-       background-color: rgba (0, 0, 0, .8);
+       background-color: rgba(0, 0, 0, .8);
+       cursor: pointer;
        display: none;
        overflow: scroll;
 
@@ -296,11 +319,11 @@
            float: right;
            margin-top: 10px;
            margin-right: 10px;
-           font-size: 45px;
+           font-size: 40px;
            color: #73b7eb;
            position: absolute;
            right: 1vw;
-           top: -2vw;
+           top: -1vw;
 
 
 
@@ -311,8 +334,20 @@
 
        }
 
+       nav {
+           height: 100px;
+       }
+
        #menu.hidden {
            height: 30px;
+       }
+
+       .topnav {
+           visibility: hidden;
+       }
+
+       #icon {
+           visibility: hidden;
        }
 
 
