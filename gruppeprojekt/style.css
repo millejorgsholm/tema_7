@@ -137,7 +137,7 @@
    /*TEKST OG OVERSKRIFTER*/
 
    h1 {
-       text-align: center;
+       text-align: left;
        font-family: 'Bungee Shade';
        margin: 10px;
        font-size: 45px;
@@ -353,7 +353,9 @@
 
        h1 {
            position: relative;
-           top: 18vw;
+           top: 2vw;
+           font-size: 35px;
+
        }
 
    }
