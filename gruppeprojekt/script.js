@@ -30,7 +30,7 @@ function visSange() {
             clone.querySelector(".album").textContent = sang.gsx$album.$t;
             clone.querySelector("article").addEventListener("click", () => visDetaljer(sang));
             list.appendChild(clone);
-            console.log(sang);
+
 
         }
     })
@@ -45,7 +45,6 @@ function lukpopop() {
 
 //Indholdet i popup-vinduet
 function visDetaljer(sang) {
-    console.log(sang);
     popop.querySelector("h2").textContent = sang.gsx$titel.$t;
     popop.querySelector("img").src = "imgs/" + sang.gsx$billede.$t + ".png";
     popop.querySelector(".genre").textContent = sang.gsx$genre.$t;
@@ -70,13 +69,16 @@ function filterBTNs() {
     filter = this.dataset.genre;
     //Når der klikkes på knap, sørger funktionen, ffor at h1-overskriftens indhold opdateres
     document.querySelector("h1").textContent = this.textContent;
-    console.log(this);
+    console.log(this.dataset.genre);
     //Fjern classen "valgt" fra alle knapper
     document.querySelectorAll(".filter").forEach((btn) => {
         btn.classList.remove("valgt");
     })
     //Tilføj classen "valgt" til den knap der er klikket på
     this.classList.add("valgt");
+
+    const splash = document.querySelector("#splash").style.backgroundImage = "url(imgs/" + this.dataset.genre + ".jpg)";
+    console.log(splash);
     visSange();
 }
 
@@ -84,13 +86,11 @@ function filterBTNs() {
 window.addEventListener("load", sidenVises);
 
 function sidenVises() {
-    console.log("sidenVises");
     document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
 }
 
 function toggleMenu() {
-    console.log("toggleMenu");
     document.querySelector("#menu").classList.toggle("hidden");
 
     let erSkjult = document.querySelector("#menu").classList.contains("hidden");
