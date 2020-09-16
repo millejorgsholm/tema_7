@@ -209,6 +209,11 @@
 
    }
 
+   #popop_indhold {
+       display: flex;
+       flex-direction: row;
+   }
+
    #luk {
        position: fixed;
        padding: 1.35em 2.2em;
