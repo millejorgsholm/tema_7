@@ -4,39 +4,98 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om os</title>
+    <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    <title>BoomBox</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="robots" content="noindex">
     <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+    <!-- Logo indsættes -->
+    <a href="index.html">
+        <img src="kasette.svg" id="logo">
+    </a>
 </head>
-<!-- LOGO BILLEDE HER -->
-<a href="index.html">
-    <img src="kasette.svg" id="logo">
-</a>
 
 <body>
+    <!--       Oprettelse af popup til singleview-->
+    <section id="popop">
+        <article>
+            <button id="luk">X</button>
+            <div id="popop_indhold">
+                <img src="" alt="">
+                <h2></h2>
+                <p>Genre: <span class="genre"></span></p>
+                <p>Kunstner: <span class="kunstner"></span></p>
+                <p>Album: <span class="album"></span></p>
+                <p>Udgivelsesdato: <span class="dato"></span></p>
+                <p>Varighed: <span class="varighed"></span></p>
+            </div>
+        </article>
+    </section>
+
     <header>
-        <img src="unsplash.jpg" id="splash" alt="splashpic">
+        <!--       Oprettelse af søgefelt-->
+        <div class="topnav">
+            <input type="text" placeholder="SØG" style="text-align: left;">
+        </div>
+        <div id="icon">
+            <img src="Search_Icon.svg" alt="search icon">
+        </div>
+        <!--              Oprettelse af navigation til desktop og burgermenu til mobilversion-->
         <div id="navbar">
             <div class="sectionwrapper">
-                <nav class="hidden">
+                <nav>
                     <div id="menuknap">☰</div>
-                    <ul id="menu" class="hidden">
-                        <li><a class="filter valgt" data-genre="alle">Alle genre</a></li>
-                        <li><a class="filter" data-genre="pop">Pop</a></li>
-                        <li><a class="filter" data-genre="rock">Rock</a></li>
-                        <li><a class="filter" data-genre="rap">Rap</a></li>
-                        <li><a class="filter" data-genre="indie">Indie</a></li>
-                        <li><a class="filter" data-genre="soul">Soul</a></li>
-                        <!--                                                <button onclick="window.location.href='om_os.html'">Om os</button>-->
-                        <li><a href="om_os.html">Om os</a></li>
-
+                    <ul id="menu" class="hidden2">
+                        <!--    Filtreringsknapper med data attributter-->
+                        <button class="filter valgt" data-genre="alle">ALLE</button>
+                        <button class="filter" data-genre="pop">POP</button>
+                        <button class="filter" data-genre="rock">ROCK</button>
+                        <button class="filter" data-genre="rap">RAP</button>
+                        <button class="filter" data-genre="indie">INDIE</button>
+                        <button class="filter" data-genre="soul">SOUL</button>
+                        <button onclick="window.location.href='om_os.html'">OM OS</button>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <h1>Om os</h1>
-    <p>BoomBox er en streamingside bla bla</p>
+    <section id="om_os_side">
+        <div class="sectionwrapper">
+            <div class="column">
+                <figure>
+                    <img src="boombox.jpg" alt="boombox">
+                </figure>
+            </div>
+            <div class="column">
+                <h2>Om os</h2>
+                <p>
+                    <p>Med BoomBox, er det let at finde den rette musik til et hvert øjeblik - på din mobil, computer tablet eller andet. Der er millioner af sange på BoomBox. Så uanset om du er ude at køre, i gang med at træne, fyre den af til en fest eller bare slapper af, er det rigtige musik altid kun et klik væk.
+                        Det er gratis at lytte, og du kan streame alt det du vil!
+                    </p>
+            </div>
+        </div>
+    </section>
+    <section id="stream">
+        <div class="sectionwrapper">
+            <div class="column">
+                <h2>Til dig der elsker at streame</h2>
+                <p> Du har adgang til alt. Overalt. Stream millioner af sange helt uden reklamer.
+                    Download dine yndlings sange. Afspil dem offline. Få eksklusive playlister og liveradio.
+                    Lyt på tværs af alle dine enheder. Det er lige så let,
+                    som det lyder.
+                </p>
+            </div>
+            <div class="column">
+                <figure>
+                    <img src="stream.jpg" alt="streaming">
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!--       Oprettelse af filtreringsknapper (Pt. er de skjult)-->
+
+    <script src="script.js"></script>
 </body>
 
 </html>
