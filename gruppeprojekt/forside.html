@@ -14,7 +14,8 @@
 
     #bg {
         display: flex;
-        background-image: url(alexandre-debieve-UmX-OgGODfM-unsplash.jpg);
+        background-image: url(unsplash.jpg);
+        /*        alexandre-debieve-UmX-OgGODfM-unsplash.jpg*/
         display: block;
         height: 100%;
         width: 100%;
@@ -30,16 +31,12 @@
         margin: 10px;
         font-size: 20px;
         cursor: pointer;
-        text-align: center;
         text-decoration: none;
         outline: none;
         color: white;
         border: none;
         box-shadow: 0 9px #3887ca;
         background-color: #73b7eb;
-        align-self: center;
-        top: 50%;
-        left: 50%;
     }
 
 
@@ -65,14 +62,20 @@
         align-items: center;
     }
 
+    #center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
 </style>
 
 <body>
 
     <div id="bg">
-        <h1>BoomBox</h1>
-
-        <div id="knap">
+        <h1 id="center">BoomBox</h1>
+        <div id="center">
             <button onclick="window.location.href='index.html'">KLIK HER</button>
         </div>
     </div>
