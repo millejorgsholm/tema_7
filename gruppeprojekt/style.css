@@ -91,7 +91,6 @@
    }
 
    #menu {
-
        list-style-type: none;
        transition: transform 0.3s;
        transform-origin: top left;
@@ -284,7 +283,7 @@
 
        #menu.hidden {
            transform: translateX(0);
-           opacity: 1;
+           /*           opacity: 1;*/
 
        }
 
@@ -319,6 +318,7 @@
            margin: 0;
            line-height: 1.6;
            transition: transform 0.3s;
+
 
        }
 
