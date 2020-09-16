@@ -4,6 +4,16 @@
 
    }
 
+   .hidden2 {
+       display: none;
+   }
+
+   @media screen and (min-width: 800px) {
+       .hidden2 {
+           display: block;
+       }
+   }
+
    /*LOGO OG BILLEDE*/
 
 
@@ -34,6 +44,7 @@
        background-position: 43% 57%;
 
    }
+
 
 
    /*SØGEFFELT*/
@@ -256,6 +267,76 @@
        padding-right: 100px;
    }
 
+   /*OM OS SIDE*/
+   #om_os_side .sectionwrapper {
+       display: flex;
+   }
+
+
+
+
+   .column,
+   #om_os_side img {
+       width: 100%;
+       justify-content: flex-start;
+
+   }
+
+
+   #om_os_side h2 {
+       font-family: 'Bungee Shade';
+       font-weight: 600;
+       font-size: 30px;
+       margin-left: 30px;
+
+
+   }
+
+   #om_os_side p {
+       display: flex;
+       font-family: 'Montserrat';
+       padding-top: 10px;
+       padding-right: 80px;
+       margin-left: 30px;
+       line-height: 2.5;
+       margin-top: 10px;
+
+   }
+
+   #stream .sectionwrapper {
+       display: flex;
+   }
+
+
+   #stream img {
+       width: 100%;
+       justify-content: flex-end;
+
+   }
+
+   #stream h2 {
+       font-family: 'Bungee Shade';
+       font-weight: 600;
+       font-size: 30px;
+       padding-left: 20px;
+
+
+   }
+
+   #stream p {
+       display: flex;
+       font-family: 'Montserrat';
+       padding-top: 10px;
+       padding-left: 20px;
+       margin-right: 30px;
+       line-height: 2.5;
+       margin-top: 20px;
+   }
+
+
+
+
+
    /*MEDIAQUERIES - KNAPPER OG LOGO*/
 
    @media (max-width:600px) {
@@ -372,4 +453,49 @@
 
        }
 
+   }
+
+   /*OM OS SIDE MEDIAQUERIES*/
+
+   @media only screen and (max-width: 950px) {
+
+
+       .sectionwrapper {
+           display: flex;
+           flex-wrap: wrap;
+           flex-grow: 1;
+           flex-basis: 450px;
+       }
+
+
+
+       #om_os_side h2 {
+           margin-top: 75px;
+
+
+       }
+
+       #om_os_side p {
+           padding-top: 10px;
+           padding-right: 0px;
+
+       }
+
+       #stream .sectionwrapper {
+           flex-wrap: wrap-reverse;
+           margin-top: 50px;
+
+       }
+
+       #stream h2 {
+
+           margin-top: 75px;
+
+
+       }
+
+       #stream p {
+           margin-bottom: 100px;
+           margin-top: 20px;
+       }
    }
