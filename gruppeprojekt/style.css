@@ -308,6 +308,7 @@
    #om_os_side p {
        display: flex;
        font-family: sans-serif;
+       font-size: 14px;
        padding-top: 10px;
        padding-right: 80px;
        margin-left: 30px;
@@ -339,6 +340,7 @@
    #stream p {
        display: flex;
        font-family: sans-serif;
+       font-size: 14px;
        padding-top: 10px;
        padding-left: 20px;
        margin-right: 30px;
@@ -476,6 +478,14 @@
 
    @media only screen and (max-width: 950px) {
 
+       .sectionwrapper_omos {
+           display: flex;
+           flex-wrap: wrap;
+           flex-grow: 1;
+           flex-basis: 450px;
+       }
+
+
 
        #om_os_side h2 {
            margin-top: 75px;
@@ -484,6 +494,7 @@
        }
 
        #om_os_side p {
+           font-size: 12px;
            padding-top: 10px;
            padding-right: 0px;
 
@@ -503,6 +514,7 @@
        }
 
        #stream p {
+           font-size: 12px;
            margin-bottom: 100px;
            margin-top: 20px;
        }
