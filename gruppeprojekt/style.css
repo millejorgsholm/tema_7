@@ -464,15 +464,6 @@
    @media only screen and (max-width: 950px) {
 
 
-       .sectionwrapper {
-           display: flex;
-           flex-wrap: wrap;
-           flex-grow: 1;
-           flex-basis: 450px;
-       }
-
-
-
        #om_os_side h2 {
            margin-top: 75px;
 
