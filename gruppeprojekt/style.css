@@ -235,19 +235,19 @@
    #popop_indhold {
        display: flex;
        flex-direction: row;
+       flex-wrap: wrap;
        padding: 20px;
    }
 
    #luk {
-       position: fixed;
+       display: inline-block;
+       float: right;
        padding: 0.2em 0.6em;
        border: none;
        color: white;
        transition: all 0.2s;
        box-shadow: 1px 2px black;
        background-color: #a7a7a7;
-       top: 6.7vw;
-       right: 21vw;
    }
 
    #luk:hover {
