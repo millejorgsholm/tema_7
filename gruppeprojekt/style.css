@@ -3,16 +3,10 @@
 
    }
 
-   body {
-       background-color: #73b7eb;
-   }
 
 
    /*LOGO OG BILLEDE*/
 
-   nav {
-       background-color: #ffffff;
-   }
 
    #logo {
        margin: 15px;
@@ -139,17 +133,17 @@
 
    .musik_view {
        padding: 10px;
-       /*       border-style: double;*/
        border-radius: 5px;
-       background: #ebebeb;
+       background: white;
+       border: solid;
    }
 
 
    /*TEKST OG OVERSKRIFTER*/
 
    h1 {
-       text-align: left;
-       font-family: 'Bungee Shade';
+       text-align: center;
+       font-family: sans-serif;
        margin: 10px;
        font-size: 45px;
 
@@ -159,7 +153,7 @@
 
 
    h2 {
-       font-family: 'Montserrat';
+       font-family: sans-serif;
        font-size: 16px;
        margin: 10px;
 
@@ -167,10 +161,26 @@
    }
 
    p {
-       font-family: 'Montserrat';
+       font-family: sans-serif;
        font-size: 12px;
        line-height: 1.8rem;
        margin: 10px;
+   }
+
+   .album {
+       font-weight: 600;
+   }
+
+   .titel {
+       font-weight: 600;
+   }
+
+   .kunstner {
+       font-weight: 600;
+   }
+
+   .genre {
+       font-weight: 600;
    }
 
    /*KNAPPER*/
@@ -180,14 +190,16 @@
        padding: 10px;
        margin: 10px;
        font-size: 20px;
+       font-weight: 600;
        cursor: pointer;
        text-align: center;
        text-decoration: none;
        outline: none;
        color: white;
-       border: none;
-       box-shadow: 0 9px #3887ca;
-       background-color: #73b7eb;
+       border: solid;
+       box-shadow: 0 9px black;
+       background-color: white;
+       color: black;
    }
 
    button:active {
@@ -214,7 +226,7 @@
        width: 60vw;
        max-height: 90vh;
        margin: 4rem auto;
-       background-color: cornflowerblue;
+       background-color: dimgrey;
        border-radius: 15px;
 
 
@@ -247,13 +259,14 @@
 
    #popop h2 {
        margin-left: 20px;
+       color: white;
 
    }
 
    #popop p {
-       font-family: 'Montserrat';
+       font-family: sans-serif;
        margin-left: 20px;
-
+       color: white
    }
 
 
@@ -285,7 +298,7 @@
 
 
    #om_os_side h2 {
-       font-family: 'Bungee Shade';
+       font-family: sans-serif;
        font-weight: 600;
        font-size: 30px;
        margin-left: 30px;
@@ -295,7 +308,8 @@
 
    #om_os_side p {
        display: flex;
-       font-family: 'Montserrat';
+       font-family: sans-serif;
+       font-size: 14px;
        padding-top: 10px;
        padding-right: 80px;
        margin-left: 30px;
@@ -316,7 +330,7 @@
    }
 
    #stream h2 {
-       font-family: 'Bungee Shade';
+       font-family: sans-serif;
        font-weight: 600;
        font-size: 30px;
        padding-left: 20px;
@@ -326,7 +340,8 @@
 
    #stream p {
        display: flex;
-       font-family: 'Montserrat';
+       font-family: sans-serif;
+       font-size: 14px;
        padding-top: 10px;
        padding-left: 20px;
        margin-right: 30px;
@@ -370,7 +385,7 @@
 
        #menu.hidden {
            transform: translateX(0);
-           /*           opacity: 1;*/
+
 
        }
 
@@ -418,7 +433,7 @@
            margin-top: 10px;
            margin-right: 10px;
            font-size: 30px;
-           color: #73b7eb;
+           color: black;
            position: absolute;
            right: 1vw;
            top: -1vw;
@@ -464,8 +479,7 @@
 
    @media only screen and (max-width: 950px) {
 
-
-       .sectionwrapper {
+       .sectionwrapper_omos {
            display: flex;
            flex-wrap: wrap;
            flex-grow: 1;
@@ -481,6 +495,7 @@
        }
 
        #om_os_side p {
+           font-size: 12px;
            padding-top: 10px;
            padding-right: 0px;
 
@@ -500,6 +515,7 @@
        }
 
        #stream p {
+           font-size: 12px;
            margin-bottom: 100px;
            margin-top: 20px;
        }
