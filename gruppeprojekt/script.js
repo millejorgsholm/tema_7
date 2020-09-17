@@ -93,7 +93,8 @@ function sidenVises() {
 function toggleMenu() {
     document.querySelector("#menu").classList.toggle("hidden2");
 
-    let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+    let erSkjult = document.querySelector("#menu").classList.contains("hidden2");
+
 
     if (erSkjult == true) {
         document.querySelector("#menuknap").textContent = "☰";
