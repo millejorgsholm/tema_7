@@ -243,19 +243,19 @@
    #popop_indhold {
        display: flex;
        flex-direction: row;
+       flex-wrap: wrap;
        padding: 20px;
    }
 
    #luk {
-       position: fixed;
+       display: inline-block;
+       float: right;
        padding: 0.2em 0.6em;
        border: none;
        color: white;
        transition: all 0.2s;
        box-shadow: 1px 2px black;
        background-color: #a7a7a7;
-       top: 6.7vw;
-       right: 21vw;
    }
 
    #luk:hover {
@@ -361,7 +361,21 @@
 
 
 
-   /*MEDIAQUERIES - KNAPPER OG LOGO*/
+   /*MEDIAQUERIES - KNAPPER, SØGEFELT OG LOGO*/
+   @media (max-width:1120px) {
+       #search {
+           display: none;
+       }
+
+   }
+
+   @media (max-width:1070px) {
+       #logo {
+
+           width: 100px;
+           height: auto;
+       }
+   }
 
    @media (max-width:600px) {
        button {
@@ -370,12 +384,14 @@
    }
 
 
-   @media (max-width:600px) {
-       #logo {
+   /*MEDIAQUERIES - POP OP BILLEDE BLIVER STORT I MOBILVIEW*/
 
-           width: 100px;
-           height: auto;
+   @media (max-width:600px) {
+
+       #popop img {
+           width: 100%;
        }
+
    }
 
 
@@ -383,7 +399,7 @@
 
    /*MEDIAQUERY - BURGER MENU*/
 
-   @media (min-width: 768px) {
+   @media (min-width: 950px) {
        #menuknap {
            display: none;
            float: right;
@@ -397,9 +413,17 @@
 
        }
 
+       /*GLOBALMENU FORSVINDER NÅR DER IKKE ER PLADS NOK*/
+
+       @media screen and (min-width: 950px) {
+           .hidden2 {
+               display: block;
+           }
+       }
+
    }
 
-   @media (max-width: 768px) {
+   @media (max-width: 950px) {
 
        #navbar ul button {
            display: block;
@@ -526,12 +550,5 @@
            font-size: 12px;
            margin-bottom: 100px;
            margin-top: 20px;
-       }
-   }
-
-
-   @media screen and (min-width: 800px) {
-       .hidden2 {
-           display: block;
        }
    }
