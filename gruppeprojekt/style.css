@@ -4,7 +4,6 @@
    }
 
 
-
    /*LOGO OG BILLEDE*/
 
 
@@ -143,7 +142,7 @@
 
    h1 {
        text-align: center;
-       font-family: sans-serif;
+       font-family: 'american_captainregular';
        margin: 10px;
        font-size: 45px;
 
@@ -153,7 +152,7 @@
 
 
    h2 {
-       font-family: sans-serif;
+       font-family: 'Quicksand', sans-serif;
        font-size: 16px;
        margin: 10px;
 
@@ -291,7 +290,7 @@
    }
 
    /*OM OS SIDE*/
-   #om_os_side .sectionwrapper {
+   #om_os_side .sectionwrapper_omos {
        display: flex;
    }
 
