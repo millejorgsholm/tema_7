@@ -376,6 +376,11 @@
            width: 100px;
            height: auto;
        }
+
+       #popop img {
+           width: 100%;
+       }
+
    }
 
 
