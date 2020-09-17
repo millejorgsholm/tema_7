@@ -399,7 +399,7 @@
 
    /*MEDIAQUERY - BURGER MENU*/
 
-   @media (min-width: 768px) {
+   @media (min-width: 950px) {
        #menuknap {
            display: none;
            float: right;
@@ -413,9 +413,17 @@
 
        }
 
+       /*GLOBALMENU FORSVINDER NÅR DER IKKE ER PLADS NOK*/
+
+       @media screen and (min-width: 950px) {
+           .hidden2 {
+               display: block;
+           }
+       }
+
    }
 
-   @media (max-width: 768px) {
+   @media (max-width: 950px) {
 
        #navbar ul button {
            display: block;
@@ -542,14 +550,5 @@
            font-size: 12px;
            margin-bottom: 100px;
            margin-top: 20px;
-       }
-   }
-
-
-   /*MEDIAQUERIES - GLOBALMENU FORSVINDER NÅR DER IKKE ER PLADS NOK*/
-
-   @media screen and (min-width: 950px) {
-       .hidden2 {
-           display: block;
        }
    }
