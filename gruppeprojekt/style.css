@@ -1,22 +1,18 @@
    * {
        margin: 0;
 
-
    }
 
-   .hidden2 {
-       display: none;
+   body {
+       background-color: #73b7eb;
    }
 
-   @media screen and (min-width: 800px) {
-       .hidden2 {
-           display: block;
-       }
-   }
 
    /*LOGO OG BILLEDE*/
 
-
+   nav {
+       background-color: #ffffff;
+   }
 
    #logo {
        margin: 15px;
@@ -118,6 +114,10 @@
 
    .hidden {
        transform: translateX(-100%);
+       display: none;
+   }
+
+   .hidden2 {
        display: none;
    }
 
@@ -228,7 +228,7 @@
        transition: all 0.2s;
        box-shadow: 1px 2px black;
        background-color: #a7a7a7;
-       top: 6vw;
+       top: 5vw;
        right: 21vw;
    }
 
@@ -442,10 +442,14 @@
 
 
        h1 {
-           position: relative;
            top: 2vw;
            font-size: 35px;
 
+       }
+
+       #luk {
+           top: 12vw;
+           right: 20vw;
        }
 
    }
@@ -492,5 +496,12 @@
        #stream p {
            margin-bottom: 100px;
            margin-top: 20px;
+       }
+   }
+
+
+   @media screen and (min-width: 800px) {
+       .hidden2 {
+           display: block;
        }
    }
