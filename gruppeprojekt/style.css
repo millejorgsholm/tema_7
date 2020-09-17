@@ -3,6 +3,11 @@
 
    }
 
+   body {
+       margin: 0;
+       height: 100%;
+   }
+
 
    /*LOGO OG BILLEDE*/
 
@@ -117,26 +122,37 @@
    /*LISTVIEW*/
 
    #liste {
-       max-width: 1100px;
+       max-width: 800px;
        margin: 0 auto;
        display: grid;
        grid-gap: 20px;
-       padding: 30px;
        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
        cursor: pointer;
-
-
-
-
    }
 
-   .musik_view {
+   #musik_view {
        padding: 10px;
        background: white;
        border: solid;
        border-style: solid;
+       height: auto;
+       display: flex;
+       flex-direction: column;
+       margin: 10px;
    }
 
+   .zoom {
+       padding: 10px;
+       transition: transform .4s;
+       /* Animation */
+       width: 200px;
+       height: 200px;
+       margin: 0 auto;
+   }
+
+   .zoom:hover {
+       transform: scale(1.07);
+   }
 
    /*TEKST OG OVERSKRIFTER*/
 
@@ -165,31 +181,6 @@
        line-height: 1.8rem;
        margin: 10px;
    }
-
-   .album {
-       font-weight: 600;
-   }
-
-   .titel {
-       font-weight: 600;
-   }
-
-   .kunstner {
-       font-weight: 600;
-   }
-
-   .genre {
-       font-weight: 600;
-   }
-
-   .dato {
-       font-weight: 600;
-   }
-
-   .varighed {
-       font-weight: 600;
-   }
-
 
    /*KNAPPER*/
 

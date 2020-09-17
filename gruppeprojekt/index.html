@@ -70,14 +70,14 @@
     <!--       Oprettelse af template til listview-->
     <section id="liste"></section>
     <template>
-        <article class="musik_view">
+        <article id="musik_view" class="zoom">
             <img src="" alt="">
-            <h2 class="genre"></h2>
-            <p> Titel: <span class="titel"></span></p>
-            <p> Kunstner: <span class="kunstner"></span></p>
-            <p> Album: <span class="album"></span></p>
-            <p class="dato"></p>
-            <p class="varighed"></p>
+            <div id="tekst">
+                <h2 class="genre"></h2>
+                <p><strong>Titel: </strong><span class="titel"></span></p>
+                <p><strong>Kunstner: </strong><span class="kunstner"></span></p>
+                <p><strong>Album: </strong><span class="album"></span></p>
+            </div>
         </article>
     </template>
     <script src="script.js"></script>
