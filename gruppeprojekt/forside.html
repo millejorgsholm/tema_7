@@ -3,7 +3,7 @@
 
 <head>
     <title>Forside</title>
-    <link href='https://fonts.googleapis.com/css?family=Bungee Shade' rel='stylesheet'>
+
 </head>
 <style>
     body,
@@ -14,8 +14,7 @@
 
     #bg {
         display: flex;
-        background-image: url(unsplash.jpg);
-        /*        alexandre-debieve-UmX-OgGODfM-unsplash.jpg*/
+        background-image: url(boomboxbg.jpg);
         display: block;
         height: 100%;
         width: 100%;
@@ -26,20 +25,25 @@
     }
 
     button {
-        position: absolute;
+        position: fixed;
         padding: 10px;
         margin: 10px;
         font-size: 20px;
         cursor: pointer;
         text-decoration: none;
-        outline: none;
-        color: white;
-        border: none;
-        box-shadow: 0 9px #3887ca;
-        background-color: #73b7eb;
+        outline: solid;
+        color: black;
+        border: solid;
+        box-shadow: 0 9px black;
+        background-color: white;
+        font-weight: 600;
+        top: 40vw;
+        left: 45vw;
     }
 
-
+    button p {
+        color: black;
+    }
 
     button:active {
         box-shadow: 0 5px #666;
@@ -47,11 +51,12 @@
     }
 
     h1 {
-        color: cornflowerblue;
-        font-family: 'Bungee Shade';
+
+        font-family: sans-serif;
         margin: 10px;
-        font-size: 60px;
+        font-size: px;
         align-self: center;
+        background-color:
 
 
     }
@@ -68,18 +73,14 @@
         align-items: center;
         height: 200px;
     }
-
 </style>
 
 <body>
 
     <div id="bg">
-        <h1 id="center">BoomBox</h1>
         <div id="center">
-            <button onclick="window.location.href='index.html'">KLIK HER</button>
+            <button onclick="window.location.href='index.html'">STREAM NU</button>
         </div>
     </div>
 
-</body>
-
-</html>
+</body></html>
