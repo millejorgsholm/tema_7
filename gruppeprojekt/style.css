@@ -357,7 +357,7 @@
 
 
    /*MEDIAQUERIES - KNAPPER, SØGEFELT OG LOGO*/
-   @media (max-width:1120px) {
+   @media (max-width:1140px) {
        #search {
            display: none;
        }
